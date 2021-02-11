@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  user: string = sessionStorage.getItem('login');
+  
   constructor(private router: Router) {}
   title = 'projetGestionCongeAngular';
 }

@@ -1,1 +1,31 @@
-<p>login works!</p>
+<h1>Se connecter</h1>
+<form (ngSubmit)="logging()" [formGroup]="form">
+  <div class="form-group">
+    <label for="mail">Mail:</label>
+    <input class="form-control" name="mail" [formControl]="mailCtrl" />
+    <div
+      *ngIf="mailCtrl.dirty && mailCtrl.hasError('required')"
+      class="alert alert-danger"
+    >
+      Mail obligatoire
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="psw">Mot de passe:</label>
+    <input class="form-control" name="psw" [formControl]="pswCtrl" />
+    <div
+      *ngIf="pswCtrl.dirty && pswCtrl.hasError('required')"
+      class="alert alert-danger"
+    >
+      Password obligatoire
+    </div>
+  </div>
+  <div *ngIf="erreur" class="alert alert-warning">
+    Mot de passe ou mail invalide
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
+        Se connecter
+    </button>
+  </div>
+</form>

@@ -8,6 +8,8 @@ import { LoginComponent } from './component/login/login.component';
 import { InscriptionComponent } from './component/inscription/inscription.component';
 import { SalarieListComponent } from './component/salarie/salarie-list/salarie-list.component';
 import { SalarieRowComponent } from './component/salarie/salarie-row/salarie-row.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,9 @@ import { SalarieRowComponent } from './component/salarie/salarie-row/salarie-row
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
