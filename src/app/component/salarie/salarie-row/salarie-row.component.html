@@ -1,1 +1,11 @@
-<p>salarie-row works!</p>
+<ng-container> <!--*ngIf="consultation; else edition">-->
+    <td>{{salarie.mail}}</td>
+    <td>{{salarie.nom}}</td>
+    <td>{{salarie.prenom}}</td>
+    <td>{{salarie.service}}</td>
+    <td>{{salarie.role}}</td>
+    <td>{{salarie.manager}}</td>
+    <td>{{salarie.manage}}</td>
+    <td><button (click)="edit()">editer</button></td>
+    <td><button (click)="delete()">supprimer</button></td>
+  </ng-container>

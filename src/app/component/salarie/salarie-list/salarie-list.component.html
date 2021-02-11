@@ -1,1 +1,22 @@
-<p>salarie-list works!</p>
+<a [routerLink]="['/inscription']" routerLinkActive="active"
+  >Nouveau salarie</a
+>
+<table>
+  <tr>
+    <th>Mail</th>
+    <th>Nom</th>
+    <th>Prenom</th>
+    <th>Service</th>
+    <th>Role</th>
+    <th>Manager</th>
+    <th>Manage</th>
+    <th></th>
+    <th></th>
+  </tr>
+  <tr
+    salarie-row
+    [salarie]="s"
+    [index]="index"
+    *ngFor="let s of salaries; let index = index"
+  ></tr>
+</table>
