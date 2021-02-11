@@ -9,6 +9,20 @@ import { Router } from '@angular/router';
 export class AppComponent {
   user: string = sessionStorage.getItem('login');
   
-  constructor(private router: Router) {}
-  title = 'projetGestionCongeAngular';
+  constructor(private router: Router) {
+  }
+
+  public logout() {
+    sessionStorage.removeItem('tokenId');
+    sessionStorage.removeItem('login');
+    this.user = '';
+    this.router.navigate(['/login']);
+  }
+
+  public canDeco(){
+    if (sessionStorage.getItem('tokenId')) {
+      return true;
+    }
+    return false;
+  }
 }
