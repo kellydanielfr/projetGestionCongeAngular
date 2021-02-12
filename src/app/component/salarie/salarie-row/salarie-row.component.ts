@@ -12,6 +12,7 @@ export class SalarieRowComponent implements OnInit {
   private _salarie: Salarie = new Salarie();
   private index: number = -1;
   private salarieBeforeChange;
+  consultation: boolean = true;
 
   constructor(private aR: ActivatedRoute) {
     aR.params.subscribe((params) => {
@@ -35,11 +36,19 @@ export class SalarieRowComponent implements OnInit {
   }
 
   public edit(){
-
+    this.consultation = true;
   }
 
   public delete(){
 
+  }
+
+  public save() {
+    this.consultation = true;
+  }
+
+  public cancel() {
+    this.consultation = true;
   }
 
     /**

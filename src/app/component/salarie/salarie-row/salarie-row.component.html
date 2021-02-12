@@ -1,11 +1,23 @@
-<ng-container> <!--*ngIf="consultation; else edition">-->
+<ng-container *ngIf="consultation; else edition">
     <td>{{salarie.mail}}</td>
     <td>{{salarie.nom}}</td>
     <td>{{salarie.prenom}}</td>
-    <td>{{salarie.service}}</td>
+    <td>{{salarie.service.libelle}}</td>
+    <td>{{salarie.role}}</td>
+    <td *ngIf="salarie.manager != null">{{salarie.manager.nom}}</td>
+    <td *ngIf="salarie.manager == null"></td>
+    <td><button (click)="edit()" class="btn btn-outline-warning">editer</button></td>
+    <td><button (click)="delete()" class="btn btn-outline-danger">supprimer</button></td>
+  </ng-container>
+
+  <ng-template #edition>
+    <td><input [(ngModel)]="salarie.mail"/></td>
+    <td><input [(ngModel)]="salarie.nom"/></td>
+    <td>{{salarie.prenom}}</td>
+    <td>{{salarie.service.libelle}}</td>
     <td>{{salarie.role}}</td>
     <td>{{salarie.manager}}</td>
-    <td>{{salarie.manage}}</td>
-    <td><button (click)="edit()">editer</button></td>
-    <td><button (click)="delete()">supprimer</button></td>
-  </ng-container>
+
+    <td><button (click)="save()">enregistrer</button></td>
+    <td><button (click)="cancel()">annuler</button></td>
+  </ng-template>
