@@ -42,4 +42,8 @@ export class SalarieService {
     };
     return this.http.post<Salarie>(this.url, o, { headers: this.httpHeaders });
   }
+
+  public findById(id: number): Observable<Salarie> {
+    return this.http.get<Salarie>(`${this.url}/${id}`);
+  }
 }
