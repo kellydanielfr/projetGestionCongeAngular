@@ -1,6 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Salarie } from 'src/app/model/salarie';
+import { Service } from 'src/app/model/service';
+import { ServiceService } from 'src/app/service/service.service';
 
 @Component({
   selector: '[salarie-row]',
@@ -12,18 +15,22 @@ export class SalarieRowComponent implements OnInit {
   private _salarie: Salarie = new Salarie();
   private index: number = -1;
   private salarieBeforeChange;
-  consultation: boolean = true;
+  
+ 
 
-  constructor(private aR: ActivatedRoute) {
+  constructor(private aR: ActivatedRoute,) {
     aR.params.subscribe((params) => {
       if (params.index) {
         this.index = params.index;
       }
     });
+
+
+    
   }
 
   ngOnInit(): void {
-    console.log("test" + this._salarie);
+    
     this.salarieBeforeChange = new Salarie(
       this._salarie.id,
       this._salarie.mail,
@@ -33,10 +40,12 @@ export class SalarieRowComponent implements OnInit {
       this._salarie.role,
       this._salarie.manager,
     )
+
+    
   }
 
   public edit(){
-    this.consultation = true;
+    console.log("edit");
   }
 
   public delete(){
@@ -44,12 +53,12 @@ export class SalarieRowComponent implements OnInit {
   }
 
   public save() {
-    this.consultation = true;
   }
 
   public cancel() {
-    this.consultation = true;
   }
+
+  
 
     /**
      * Getter salarie

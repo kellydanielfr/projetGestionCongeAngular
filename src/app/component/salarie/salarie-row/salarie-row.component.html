@@ -1,4 +1,4 @@
-<ng-container *ngIf="consultation; else edition">
+<ng-container>
     <td>{{salarie.mail}}</td>
     <td>{{salarie.nom}}</td>
     <td>{{salarie.prenom}}</td>
@@ -6,18 +6,7 @@
     <td>{{salarie.role}}</td>
     <td *ngIf="salarie.manager != null">{{salarie.manager.nom}}</td>
     <td *ngIf="salarie.manager == null"></td>
-    <td><button (click)="edit()" class="btn btn-outline-warning">editer</button></td>
-    <td><button (click)="delete()" class="btn btn-outline-danger">supprimer</button></td>
+    <td><button [routerLink]="['/salarie', 'edit', salarie.id]"
+      routerLinkActive="active" class="btn btn-outline-warning">Modifier</button></td>
+    <td><button (click)="delete()" class="btn btn-outline-danger">Supprimer</button></td>
   </ng-container>
-
-  <ng-template #edition>
-    <td><input [(ngModel)]="salarie.mail"/></td>
-    <td><input [(ngModel)]="salarie.nom"/></td>
-    <td>{{salarie.prenom}}</td>
-    <td>{{salarie.service.libelle}}</td>
-    <td>{{salarie.role}}</td>
-    <td>{{salarie.manager}}</td>
-
-    <td><button (click)="save()">enregistrer</button></td>
-    <td><button (click)="cancel()">annuler</button></td>
-  </ng-template>

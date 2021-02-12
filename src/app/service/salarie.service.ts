@@ -21,6 +21,10 @@ export class SalarieService {
     return this.http.get<Salarie[]>(this.url, { headers: this.httpHeaders });
   }
 
+  public allSalarieLazy(): Observable<Salarie[]> {
+    return this.http.get<Salarie[]>(this.url + '/lazy', { headers: this.httpHeaders });
+  }
+
   public delete(id: number): Observable<void> {
     return this.http.delete<void>(this.url + '/' + id, {
       headers: this.httpHeaders,

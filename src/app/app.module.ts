@@ -10,6 +10,7 @@ import { SalarieListComponent } from './component/salarie/salarie-list/salarie-l
 import { SalarieRowComponent } from './component/salarie/salarie-row/salarie-row.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditSalarieComponent } from './component/salarie/edit-salarie/edit-salarie.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     InscriptionComponent,
     SalarieListComponent,
-    SalarieRowComponent
+    SalarieRowComponent,
+    EditSalarieComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-export class ServiceName {
+export class Service {
     private _id: number;
     private _libelle:String;
 

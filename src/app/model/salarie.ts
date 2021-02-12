@@ -1,6 +1,6 @@
 import { RouterLink } from "@angular/router";
 import { Role } from "./role.enum";
-import { ServiceName } from "./service-name";
+import { Service } from "./service";
 
 export class Salarie {
     private _id: number;
@@ -8,12 +8,12 @@ export class Salarie {
 
     private _nom: String;
     private _prenom: String;
-    private _service: ServiceName;
+    private _service: Service;
     private _role: Role;
     private _manager: Salarie;
     private _manage: Array<Salarie>;
     
-	constructor(id?: number, mail: String = '', nom: String = '', prenom: String = '', service: ServiceName = null, role: Role = null, manager?: Salarie, manage?: Array<Salarie>) {
+	constructor(id?: number, mail: String = '', nom: String = '', prenom: String = '', service: Service = null, role: Role = null, manager?: Salarie, manage?: Array<Salarie>) {
 		this._id = id;
 		this._mail = mail;
 		this._nom = nom;
@@ -60,9 +60,9 @@ export class Salarie {
 
     /**
      * Getter service
-     * @return {ServiceName}
+     * @return {Service}
      */
-	public get service(): ServiceName {
+	public get service(): Service {
 		return this._service;
 	}
 
@@ -125,9 +125,9 @@ export class Salarie {
 
     /**
      * Setter service
-     * @param {ServiceName} value
+     * @param {Service} value
      */
-	public set service(value: ServiceName) {
+	public set service(value: Service) {
 		this._service = value;
 	}
 

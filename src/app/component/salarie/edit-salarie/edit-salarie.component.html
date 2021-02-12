@@ -1,0 +1,61 @@
+<form (ngSubmit)="send()" [formGroup]="form">
+    <div class="form-group">
+      <input type="email" class="form-control" name="mail" [formControl]="mailCtrl"/>
+      <div *ngIf="mailCtrl.dirty && mailCtrl.hasError('required')"  class="alert alert-danger">Le mail est obligatoire</div>
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" name="nom" [formControl]="nomCtrl" />
+      <div
+      *ngIf="nomCtrl.dirty && nomCtrl.hasError('required')"
+      class="alert alert-danger">Le nom est obligatoire
+    </div>
+  </div>
+  <div class="form-group">
+  <input type="text" class="form-control" name="prenom" value="{{salarie.prenom}}" disabled />
+</div>
+  <div class="form-group">
+    <select class="form-control" name="role" [formControl]="roleCtrl" >
+      <option value="">Choose...</option>
+      <option value="ROLE_ADMIN">Admin</option>
+      <option value="ROLE_SALARIE">Salarie</option>
+      <option value="ROLE_MANAGER">Manager</option>
+    </select>
+    <div
+    *ngIf="roleCtrl.dirty && roleCtrl.hasError('required')"
+    class="alert alert-danger">Le role est obligatoire
+    </div>
+    
+</div>
+<div class="form-group">
+  <select class="form-control" name="role" [formControl]="serviceCtrl" (change)="serviceSelect($event.target.value)">
+    <option value="">Choisir...</option>
+    <option *ngFor="let service of services" [value]="service.id"
+     [attr.selected]="service.libelle==salarie.service.libelle ? true : null">{{service.libelle}}
+    </option>
+  </select>
+  <div
+  *ngIf="roleCtrl.dirty && roleCtrl.hasError('required')"
+  class="alert alert-danger">Le role est obligatoire
+  </div>
+</div>
+<div class="form-group">
+  <select class="form-control" name="manager" [formControl]="managerCtrl" (change)="managerSelect($event.target.value)">
+    <option *ngFor="let manager of managers" [value]="manager.id"
+     [attr.selected]="manager.id==salarie.manager.id ? true : null">{{manager.nom}}
+    </option>
+  </select>
+  <div
+  *ngIf="managerCtrl.dirty && managerCtrl.hasError('required')"
+  class="alert alert-danger">Le manager est obligatoire
+  </div>
+</div>
+
+    <!--{{salarie.manager}}-->
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
+          Enregistrer
+        </button>
+      </div>
+    <button (click)="cancel()" class="btn btn-outline-warning">Annuler</button>
+</form>
